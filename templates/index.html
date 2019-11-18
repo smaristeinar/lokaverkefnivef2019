@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="form-div">
+<h1>LOGIN</h1>
+<form class="form" action="/login" method="POST">
+  <div class="form-feild">
+    <label>Nafn</label>
+      <input name="name" type="text"
+          placeholder="jon jonson" required/>
+  </div>
+  <div class="form-feild">
+    <label for="símanúmer">password</label>
+    <input type="password" id="password" name="password" required/>
+  </div>
+  <div class="form-feild">
+    <input type="submit" class="takkar2" name="submit" value="submit">
+  </div>
+
+</form>
+
+
+
+</div>
+
+
+{% endblock %}

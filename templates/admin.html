@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+
+
+{% for items in session["info"] %}
+  {% for names in items %}
+    {% if names == session["user"]%}
+      <p>Vlkominn {{ items[0] }}</p>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+<h1>HELLO BELLO</h1>
+<table>
+<tbody>
+ <tr>
+  <th>Nafn</th>
+  <th>Password</th>
+  <th>Email</th>
+ </tr>
+{% for items in session["info"] %}
+  <tr>
+    <td>{{items[0]}}</td>
+    <td>{{items[1]}}</td>
+    <td>{{items[2]}}</td>
+    <td><a href="/deleteuser/{{items[1]}}">Delete user</a></td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="admin">
+<div class="my_posts">
+  {% for post in posts %}
+      <div class="post">
+        <h1>{{post[2]}}</h1>
+        <form class="form" action="/update/{{post[0]}}" method="POST">
+          <div class="form-feild">
+              <textarea name="text" value="text" type="text" rows="10" cols="30" required>{{post[1]}}</textarea>
+          </div>
+          <div class="form-feild">
+            <input type="submit" class="takkar2" name="submit" value="submit">
+          </div>
+        </form>
+        <a href="/delete/{{post[0]}}">Delete</a>
+      </div>
+  {% endfor %}
+</div>
+
+<div class="form-div">
+<h1>REGISTER</h1>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h3>{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<form class="form" action="/register" method="POST">
+  <div class="form-feild">
+    <label>Nafn</label>
+      <input name="name" type="text"
+          placeholder="jon jonson" required/>
+  </div>
+  <div class="form-feild">
+    <label>Email</label>
+    <input type="email" name="email"
+    placeholder="example@example.com"
+    required/>
+  </div>
+  <div class="form-feild">
+    <label for="símanúmer">password</label>
+    <input type="password" id="password" name="password" required/>
+  </div>
+  <div class="form-feild">
+    <input type="submit" class="takkar2" name="submit" value="submit">
+  </div>
+</form>
+</div>
+</div>
+<a href="/logout">Logout</a>
+
+{% endblock %}
+
+
+<!--      <h1>{{post[2]}}</h1>
+      <p>{{post[1]}}</p>
+      <a href="/delete/{{post[0]}}">Delete Post</a>
+      <a href="/update/{{post[0]}}">Update Post</a>
+-->

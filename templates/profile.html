@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+{% for items in session["info"] %}
+  {% for names in items %}
+    {% if names == session["user"]%}
+      <p>Vlkominn {{ items[0] }}</p>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+<h1>HELLO BELLO</h1>
+
+<div class="my_posts">
+  {% for post in posts %}
+    {% if post[2] == session["name"]%}
+      <div class="post">
+        <h1>{{post[2]}}</h1>
+        <form class="form" action="/update/{{post[0]}}" method="POST">
+          <div class="form-feild">
+              <textarea name="text" value="text" type="text" rows="10" cols="30" required>{{post[1]}}</textarea>
+          </div>
+          <div class="form-feild">
+            <input type="submit" class="takkar2" name="submit" value="submit">
+          </div>
+        </form>
+        <a href="/delete/{{post[0]}}">Delete</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+<a href="/logout">Logout</a>
+{% endblock %}
+
+
+<!--      <h1>{{post[2]}}</h1>
+      <p>{{post[1]}}</p>
+      <a href="/delete/{{post[0]}}">Delete Post</a>
+      <a href="/update/{{post[0]}}">Update Post</a>
+-->

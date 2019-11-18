@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<form class="form" action="/posting" method="POST">
+  <div class="form-feild">
+      <textarea name="text" value="text" type="text" rows="10" cols="30" required></textarea>
+  </div>
+  <div class="form-feild">
+    <input type="submit" class="takkar2" name="submit" value="submit">
+  </div>
+</form>
+
+{% for post in posts %}
+<div class="post">
+<h1>{{post[2]}}</h1>
+<p>{{post[1]}}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

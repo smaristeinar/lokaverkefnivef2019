@@ -1,0 +1,106 @@
+/*
+font-family: 'Tomorrow', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-family: 'Nunito', sans-serif;
+*/
+
+body{
+  width: 1080px;
+  background-color: #F8F8FF;
+
+}
+
+.blockbody{
+  display: grid;
+  grid-template-areas:
+   "header header header"
+   "user wall wall";
+
+}
+
+.header{
+  grid-area: header;
+  font-size: 35px;
+  font-family:  'Tomorrow', sans-serif;
+}
+
+.userlinks{
+  display: inline-block;
+  width: 150px;
+  grid-area: user;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+
+
+}
+
+.userlinks > li{
+  display:block;
+  font-family: 'Dosis', sans-serif;
+  font-size: 25px;
+  padding: 10px;
+  margin-top: 20px;
+  color: black;
+  background-color: #fffdf5;
+  border: 3px solid black;
+  border-radius:0px 77px 0px 0px;
+
+}
+
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.wall{
+  grid-area: wall;
+  background-color: #fffdf5;
+  padding: 15px;
+  margin: 0px;
+  border: 3px solid black;
+  border-radius: 0px 77px 0px 0px;
+
+}
+.wall > h1{
+  font-family: 'Dosis', sans-serif;
+}
+
+.my_posts{
+  font-family: 'Dosis', sans-serif;
+}
+.post{
+  font-family: 'Dosis', sans-serif;
+}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #bbb;
+    text-align: left;
+    padding: 8px;
+    width: 50%;
+}
+tr:nth-child(even) {
+    background-color: #ddd;
+
+}
+
+.admin{
+  display:grid;
+  grid-template-areas: "post form";
+}
+
+.my_posts{
+  grid-area: posts:
+}
+
+
+.form_div{
+  grid-area: form;
+}
