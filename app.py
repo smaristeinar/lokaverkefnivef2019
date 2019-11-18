@@ -187,8 +187,9 @@ def admin():
 
 @app.route("/logout")
 def logout():
-    session.pop("user")
-    session.pop("info")
+    if "user" in session:
+        session.pop("user")
+        session.pop("info")
     return redirect(url_for("index"))
 
 
